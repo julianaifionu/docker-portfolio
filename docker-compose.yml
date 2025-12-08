@@ -1,7 +1,6 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
@@ -15,7 +14,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
     restart: always
     environment:
       PMA_HOST: mysql
@@ -26,7 +24,7 @@ services:
       - mysql
 
   backend:
-    build: ./backend
+    image: julieify/docker-portfolio-backend:latest
     restart: always
     ports:
       - '3000:3000'
@@ -39,7 +37,7 @@ services:
       - mysql
 
   frontend:
-    build: ./frontend
+    image: julieify/docker-portfolio-frontend:latest
     restart: always
     ports:
       - '5173:5173'

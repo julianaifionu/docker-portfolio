@@ -18,7 +18,6 @@ This project is a small full-stack Todo application demonstrating **container de
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) installed
 - [Docker Compose](https://docs.docker.com/compose/) (comes with Docker Desktop)
-- Node.js installed (only needed if you want to run outside containers)
 
 ---
 
@@ -28,6 +27,7 @@ This project is a small full-stack Todo application demonstrating **container de
 
 ```bash
 git clone https://github.com/julianaifionu/docker-portfolio.git
+
 cd docker-portfolio
 
 ```
@@ -35,7 +35,7 @@ cd docker-portfolio
 2. **Start all services using Docker Compose**
 
 ```bash
-docker-compose up --build
+docker-compose up
 
 # This command will:
 
@@ -61,6 +61,8 @@ docker-compose up --build
 5. **Stopping the Project**
 
 ```bash
+CTRL/CMD + C 
+
 docker-compose down
 ```
 
