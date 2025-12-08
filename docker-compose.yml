@@ -1,0 +1,50 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: todos_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8081:80'
+    depends_on:
+      - mysql
+
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: userpass
+      DB_NAME: todos_db
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - '5173:5173'
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
