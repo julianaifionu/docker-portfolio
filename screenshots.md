@@ -51,7 +51,7 @@ This document shows the development process for the containerized Todo app, illu
 
 ## 5. Running the app using Docker Compose
 
-- Learned that running `npm run start` locally **bypassed Docker networking**, causing DB errors.
+- Learned that running `npm start` locally **bypassed Docker networking**, causing DB errors.
 - Correct approach: `docker compose up --build` starts all services and ensures proper communication between containers.
 - Verified backend logs show successful connection to MySQL.
 
@@ -93,13 +93,12 @@ docker ps # show only running containers
 
 ---
 
-## 8. Summary and Lessons Learned
+## 9. Summary and Lessons Learned
 
 - Containers isolate development environments and prevent dependency conflicts.
 - Docker Compose simplifies orchestration of multiple services.
-- Always run multi-service apps with Docker Compose rather than local npm scripts to avoid networking issues.
 - Push docker images to Docker Hub for others to access
-- Other importnat commands I learned:
+- Other important commands I learned:
 
 ```bash
 docker build -t backend . # Build an image from a Dockerfile
