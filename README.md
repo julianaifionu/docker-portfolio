@@ -68,6 +68,9 @@ CTRL/CMD + C
 docker-compose down
 ```
 
+## Documentation
+- Check the documentation.md for documentations and scheenshot evidence of completing the tasks
+
 ## References
 
 - [Docker Documentation](https://docs.docker.com/get-started/)
