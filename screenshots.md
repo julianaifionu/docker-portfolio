@@ -9,17 +9,15 @@ This document shows the development process for the containerized Todo app, illu
 - Started by creating a backend with **Express** and a frontend with **Vite + React**.
 - Added basic CRUD functionality
 
-
 ---
 
 ## 2. Adding Dockerfiles
 
 - Added a `Dockerfile` for **backend** with Node environment.
-![Backend Dockerfile](screenshots/be_dockerfile.png)
+  ![Backend Dockerfile](screenshots/be_dockerfile.png)
 
 - Added a `Dockerfile` for **frontend** to serve the React app.
-![Frontend Dockerfile](screenshots/fe_dockerfile.png)
-
+  ![Frontend Dockerfile](screenshots/fe_dockerfile.png)
 
 ---
 
@@ -37,6 +35,7 @@ This document shows the development process for the containerized Todo app, illu
 ---
 
 ## 4. Building and running containers
+
 - Ran `npm run start` to start my backend app.
 - Initial errors:
   - Incorrect paths in Dockerfile/context
@@ -73,7 +72,17 @@ This document shows the development process for the containerized Todo app, illu
 
 ---
 
-## 7. Pushing images to Docker Hub
+## 7. List containers
+
+```bash
+docker ps -a # show all containers, including stopped ones
+
+docker ps # show only running containers
+```
+
+## ![Docker Hub Push](screenshots/view_containers.png)
+
+## 8. Pushing images to Docker Hub
 
 - Built images and pushed both backend and frontend to **Docker Hub** for sharing.
 - Learned about tagging, versioning, and using public repositories.
@@ -90,3 +99,10 @@ This document shows the development process for the containerized Todo app, illu
 - Docker Compose simplifies orchestration of multiple services.
 - Always run multi-service apps with Docker Compose rather than local npm scripts to avoid networking issues.
 - Push docker images to Docker Hub for others to access
+- Other importnat commands I learned:
+
+```bash
+docker build -t backend . # Build an image from a Dockerfile
+
+docker run -p 3000:3000 backend # Run a container from the image
+```

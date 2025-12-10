@@ -53,7 +53,9 @@ docker-compose up
 - Backend API: http://localhost:3000/api/todos
 
 - phpMyAdmin: http://localhost:8081
+
   User: `user`
+	
   Password: `userpass`
 
 ---
